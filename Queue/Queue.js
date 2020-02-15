@@ -7,6 +7,10 @@ class Queue{
         return this.dataStore.length === 0
     }
 
+    get count(){
+        return this.dataStore.length;
+    }
+
     peek(){
         if (this.isEmpty()){
             return false;
