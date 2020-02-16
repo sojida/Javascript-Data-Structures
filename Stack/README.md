@@ -8,24 +8,31 @@ In Javascript, Stacks are easy to implement with the in built Array Data Structu
 The basic operations of the Stack includes:
 
 - Push
+
 Add item to the top of the stack
 
 - Pop
+
 Remove item from the top of the stack
 
 - Peek
+
 Returns the value stored at the top of the stack without removing it from the stack
 
 - Clear
+
 Removes all items from the stack
 
 - Length
+
 Returns the size of the stack
 
 - isFull
+
 checks if stack is full
 
 - isEmpty
+
 checks if stack is empty
 
 ## Implementations
