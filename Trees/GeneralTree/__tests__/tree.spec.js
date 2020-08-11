@@ -34,7 +34,12 @@ test('Trees', () => {
     expect(nodeToTest1.hasChild('11')).toBe(true);
 
 
-    tree.delete('11')
+    const deleted = tree.delete('11')
+    expect(deleted).toBe(true);
+
+    const deleted2 = tree.delete('yyyyyyy')
+    expect(deleted2).toBe(false);
+
     const nodeToTest2 = tree.findNode('10');
     expect(nodeToTest2.hasChild('11')).toBe(false);
 
@@ -43,4 +48,14 @@ test('Trees', () => {
 
     tree2.insert('2')
     expect(tree2.root.element).toBe('2')
+
+    const callback = (node) => {
+        if (node.element === '1') {
+            node.element = '10'
+        }
+    }
+    expect(tree2.posttraverse(callback)).toBe(true);
+
+    expect(tree.insert('11', 'YyYyY')).toBe(false);
+    tree2.tra
 });

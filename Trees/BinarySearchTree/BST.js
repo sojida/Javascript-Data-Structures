@@ -1,4 +1,9 @@
+/**Class representing a Node in a Binary Tree */
 class BSTNode {
+    /**
+     * Creates a Node object 
+     * @param {*} element - The node value
+     */
     constructor(element) {
         this.element = element;
         this.left = null;
@@ -6,11 +11,21 @@ class BSTNode {
     }
 }
 
+/**Class representing the Binary Search Tree */
 class BST {
+    /**
+     * Cerates a root node
+     * @param {*} root - The root value
+     */
     constructor(root) {
         this.root = new BSTNode(root) || null
     }
 
+    /**
+     * Inserts node into tree structure
+     * @param {*} element A value to add to the node
+     * @returns {void}
+     */
     insert(element) {
         const newNode = new BSTNode(element);
 
@@ -27,7 +42,7 @@ class BST {
             if (newnode.element < node.element) {
                 if (node.left === null){
                     node.left = newNode;
-                }else {
+                } else {
                     insertion(node.left, newnode)
                 }
             }
@@ -36,6 +51,11 @@ class BST {
         return insertion(this.root, newNode);
     }
 
+    /**
+     * Search Binary Tree
+     * @param {*} element node element to find
+     * @returns {BSTNode} node
+     */
     search(element) {
         
         function findNode(node, elementToFind){
@@ -61,6 +81,11 @@ class BST {
 
     }
 
+    /**
+     * Finds min node
+     * @param {BSTNode} parentNode node
+     * @returns {BSTNode}
+     */
     findMinNode(parentNode){
         let minNode = null;
         let node = parentNode;
@@ -72,6 +97,11 @@ class BST {
         return node;
     }
 
+    /**
+     * Finds max node
+     * @param {BSTNode} parentNode node
+     * @returns {BSTNode}
+     */
     findMaxNode(parentNode){
         let maxNode = null;
         let node = parentNode;
@@ -83,6 +113,11 @@ class BST {
         return node;
     }
 
+    /**
+     * Traverses Binary Search Tree in-order
+     * @param {BSTNode} node node object
+     * @returns {Array} list on node elements
+     */
     inOrder(node){
         const arr = [];
         function traverse(node, data){
@@ -97,6 +132,11 @@ class BST {
         return arr
     }
 
+    /**
+     * Traverses Binary Search Tree pre-order
+     * @param {BSTNode} node node object
+     * @returns {Array} list on node elements
+     */
     preOrder(node){
         const arr = [];
         function traverse(node, data){
@@ -111,6 +151,11 @@ class BST {
         return arr
     }
 
+    /**
+     * Traverses Binary Search Tree post-order
+     * @param {BSTNode} node node object
+     * @returns {Array} list on node elements
+     */
     postOrder(node){
         const arr = [];
         function traverse(node, data){
@@ -125,6 +170,11 @@ class BST {
         return arr
     }
 
+    /**
+     * Delete node from Binary Search Tree
+     * @param {*} element element of node
+     * @returns {void}
+     */
     delete(element){
         const deleteNode =(node, elementToDelete) => {
             if (!node) {
@@ -173,21 +223,5 @@ class BST {
         this.root = deleteNode(this.root, element);
     }
 }
-
-
-const tree = new BST(11);
-tree.insert(6)
-tree.insert(8)
-tree.insert(19)
-tree.insert(4)
-tree.insert(21)
-tree.insert(20)
-tree.insert(22)
-tree.insert(2);
-
-
-const one = tree.search(1)
-console.log(one);
-
 
 module.exports = BST;
