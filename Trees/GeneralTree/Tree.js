@@ -52,6 +52,7 @@ class Tree {
      * @returns {Boolean} true.
      */
     traverse(callback) {
+        /** recursively traverse children of node */
         function traverseChilren(node){
             callback(node)
             node.children.forEach(childNode => traverseChilren(childNode))
@@ -67,6 +68,7 @@ class Tree {
      * @returns {Boolean} true.
      */
     posttraverse(callback) {
+        /** recursively traverse children of node */
         function traverseChilren(node){
             node.children.forEach(childNode => traverseChilren(childNode))
             callback(node)
@@ -123,6 +125,7 @@ class Tree {
     delete(element){
         let deleted = false;
 
+        /** deletes all children in a node */
         const deleteNode = (node) => {
             node.children.forEach((item, index) => {
                 if (item.element === element){

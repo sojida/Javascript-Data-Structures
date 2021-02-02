@@ -1,4 +1,9 @@
+/** Class representing a Node */
 class Node {
+    /**
+     * Create a node
+     * @param {Any} element element
+     */
     constructor(element) {
         this.element = element;
         this.next = null;
@@ -6,11 +11,21 @@ class Node {
     }
 }
 
+/**
+ * Class representing a Double Linked List
+ */
 class DoubleLinkedList {
+    /**
+     * Create a double linked list
+     */
     constructor() {
         this.head = new Node('Head')
     }
 
+    /**
+     * Displays the list of items in the list
+     * @returns {Array} list of items
+     */
     get display() {
         const values = []
         let currentNode = this.head;
@@ -23,6 +38,10 @@ class DoubleLinkedList {
         return values;
     }
 
+    /**
+     * Displays the a reverse list of items
+     * @returns {Array} list of items
+     */
     get displayReverse() {
         const values = [];
         let currentNode = this.head;
@@ -40,6 +59,11 @@ class DoubleLinkedList {
     }
 
 
+    /**
+     * Finds given element in the list
+     * @param {Any} element element
+     * @returns {Node} node
+     */
     find(element) {
         let currentNode = this.head;
 
@@ -50,6 +74,11 @@ class DoubleLinkedList {
         return currentNode;
     }
 
+
+    /**
+     * Finds the last item in the list
+     * @returns {Node} node
+     */
     findEnd() {
         let currentNode = this.head;
 
@@ -60,6 +89,10 @@ class DoubleLinkedList {
         return currentNode;
     }
 
+    /**
+     * Inserts an item at the head of list
+     * @param {Any} element element
+     */
     insertAtHead(element) {
         const newNode = new Node(element);
 
@@ -74,6 +107,11 @@ class DoubleLinkedList {
         }
     }
 
+    /**
+     * Inserts item at an already existing link
+     * @param {Any} link element to be inserted at
+     * @param {Any} element new element to be inserted
+     */
     insertAtLink(link, element) {
         const newNode = new Node(element);
         const linkElement = this.find(link);
@@ -89,6 +127,10 @@ class DoubleLinkedList {
         }
     }
 
+    /**
+     * Inserts item at the end of the list
+     * @param {Any} element element
+     */
     insertAtEnd(element) {
         const newNode = new Node(element);
         const endLink = this.findEnd();
@@ -96,6 +138,9 @@ class DoubleLinkedList {
         newNode.previous = endLink;
     }
 
+    /**
+     * remove item at the start of the list
+     */
     deleteAtHead() {
         if (this.head.next) {
             if (this.head.next.next) {
@@ -105,6 +150,10 @@ class DoubleLinkedList {
         }
     }
 
+    /**
+     * remove item a a link
+     * @param {Any} link element
+     */
     deleteAtLink(link) {
         const currentLink = this.find(link);
         if (currentLink.element === link){
@@ -117,6 +166,9 @@ class DoubleLinkedList {
         }
     }
 
+    /**
+     * remove item at the end of the list
+     */
     deleteAtEnd() {
         const endLink = this.findEnd();
         if (endLink.previous) {

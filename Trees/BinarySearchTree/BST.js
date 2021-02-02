@@ -29,6 +29,7 @@ class BST {
     insert(element) {
         const newNode = new BSTNode(element);
 
+        /** recursively insert node */
         function insertion(node, newnode){
 
             if (newnode.element > node.element) {
@@ -58,6 +59,7 @@ class BST {
      */
     search(element) {
         
+        /** recursively find node */
         function findNode(node, elementToFind){
             if (!node) {
                 return null
@@ -120,6 +122,7 @@ class BST {
      */
     inOrder(node){
         const arr = [];
+        /** recurslively traverse tree */
         function traverse(node, data){
             if(node !== null){
                 traverse(node.left, data)
@@ -139,6 +142,7 @@ class BST {
      */
     preOrder(node){
         const arr = [];
+        /** recurslively traverse tree */
         function traverse(node, data){
             if(node !== null){
                 data.push(node.element);
@@ -158,6 +162,7 @@ class BST {
      */
     postOrder(node){
         const arr = [];
+        /** recurslively traverse tree */
         function traverse(node, data){
             if(node !== null){
                 traverse(node.left, data)
@@ -176,6 +181,7 @@ class BST {
      * @returns {void}
      */
     delete(element){
+        /** recurslively delete node */
         const deleteNode =(node, elementToDelete) => {
             if (!node) {
                 return null
